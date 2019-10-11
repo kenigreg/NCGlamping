@@ -20,3 +20,15 @@ export const getLocation = postCode => {
     return result;
   });
 };
+
+export const getSearchSite = searchTerm => {
+  console.log(searchTerm);
+  const url = 'http://localhost:8080/sites';
+  return axios
+    .get(url, {
+      params: { q: searchTerm }
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};

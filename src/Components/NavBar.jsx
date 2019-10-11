@@ -25,9 +25,6 @@ const NavBar = props => {
             <Link to="/">
               <li className="nav-link">Sites</li>
             </Link>
-            <Link to="/articles">
-              <li className="nav-link">Find A Campsite</li>
-            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

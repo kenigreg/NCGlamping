@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getSingleSite, getLocation } from './Api';
 import { Card } from 'react-bootstrap';
+import Moment from 'react-moment';
 
 class SingleSite extends Component {
   state = {
@@ -14,7 +15,6 @@ class SingleSite extends Component {
 
     getSingleSite(id)
       .then(site => {
-        console.log(site);
         this.setState({ site });
       })
       .catch(errSite => {
@@ -50,7 +50,12 @@ class SingleSite extends Component {
                 {site.postCode}
               </p>
               <h2>About the Site</h2>
-              <Card.Text>{site.description}</Card.Text>
+              <Card.Text className="text-justify">{site.description}</Card.Text>
+              <h4>Availability</h4>
+              <Card.Text>
+                <Moment format="DD MMM YYYY">{site.bookingsOpen}</Moment> to{' '}
+                <Moment format="DD MMM YYYY">{site.bookingsClose}</Moment>
+              </Card.Text>
             </Card.Body>
           </Card>
         )}
